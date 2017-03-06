@@ -7,12 +7,9 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
   StatusBar,
   Navigator,
-  Image,
-  TextInput,
   AppState
 } from 'react-native';
 import { connect } from 'react-redux';
