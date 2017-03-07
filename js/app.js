@@ -21,7 +21,7 @@ class Usoso extends Component {
     super(props);
   }
 
-  componentDidMount: function() {
+  componentDidMount () {
     AppState.addEventListener('change', this.handleAppStateChange);
 
     // TODO: Make this list smaller, we basically download the whole internet
@@ -33,21 +33,21 @@ class Usoso extends Component {
     this.props.dispatch(loadSurveys());
 
     updateInstallation({version});
-    CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
-  },
+    // CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
+  }
 
-  componentWillUnmount: function() {
+  componentWillUnmount () {
     AppState.removeEventListener('change', this.handleAppStateChange);
-  },
+  }
 
-  handleAppStateChange: function(appState) {
+  handleAppStateChange (appState) {
     if (appState === 'active') {
       this.props.dispatch(loadSessions());
       this.props.dispatch(loadNotifications());
       this.props.dispatch(loadSurveys());
-      CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
+      // CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
     }
-  },
+  }
 
   render() {
     if (!this.props.isLoggedIn) {
@@ -63,7 +63,6 @@ class Usoso extends Component {
         <F8Navigator />
         <PushNotificationsController />
       </View>
-    );
     );
   }
 }
