@@ -42,7 +42,7 @@ var logger = createLogger({
   duration: true,
 });
 
-var createF8Store = applyMiddleware(promise, array, analytics, logger)(createStore);
+var createF8Store = applyMiddleware()(createStore);
 
 function configureStore(onComplete: ?() => void) {
   // TODO(frantic): reconsider usage of redux-persist, maybe add cache breaker

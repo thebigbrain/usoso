@@ -64,7 +64,7 @@ type State = {
 
 const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 
-var ActivityIndicatorIOS = require('ActivityIndicatorIOS');
+var ActivityIndicatorIOS = require('ActivityIndicator');
 var ProgressBarAndroid = require('ProgressBarAndroid');
 const ActivityIndicator = Platform.OS === 'ios'
   ? ActivityIndicatorIOS

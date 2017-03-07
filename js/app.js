@@ -12,9 +12,20 @@ import {
   Navigator,
   AppState
 } from 'react-native';
+import {
+  loadConfig,
+  loadMaps,
+  loadNotifications,
+  loadSessions,
+  loadFriendsSchedules,
+  loadSurveys,
+} from './actions';
+import { updateInstallation } from './actions/installation';
 import { connect } from 'react-redux';
 
+import F8Navigator from './F8Navigator';
 import LoginScreen from './login/LoginScreen';
+var PushNotificationsController = require('./PushNotificationsController');
 
 class Usoso extends Component {
   constructor(props) {
@@ -25,14 +36,14 @@ class Usoso extends Component {
     AppState.addEventListener('change', this.handleAppStateChange);
 
     // TODO: Make this list smaller, we basically download the whole internet
-    this.props.dispatch(loadNotifications());
-    this.props.dispatch(loadMaps());
-    this.props.dispatch(loadConfig());
-    this.props.dispatch(loadSessions());
-    this.props.dispatch(loadFriendsSchedules());
-    this.props.dispatch(loadSurveys());
+    // this.props.dispatch(loadNotifications());
+    // this.props.dispatch(loadMaps());
+    // this.props.dispatch(loadConfig());
+    // this.props.dispatch(loadSessions());
+    // this.props.dispatch(loadFriendsSchedules());
+    // this.props.dispatch(loadSurveys());
 
-    updateInstallation({version});
+    // updateInstallation({version});
     // CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
   }
 
@@ -42,9 +53,9 @@ class Usoso extends Component {
 
   handleAppStateChange (appState) {
     if (appState === 'active') {
-      this.props.dispatch(loadSessions());
-      this.props.dispatch(loadNotifications());
-      this.props.dispatch(loadSurveys());
+      // this.props.dispatch(loadSessions());
+      // this.props.dispatch(loadNotifications());
+      // this.props.dispatch(loadSurveys());
       // CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
     }
   }
